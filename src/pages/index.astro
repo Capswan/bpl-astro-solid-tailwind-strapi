@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Flowbitten } from "../components/Flowbitten";
+
+// Example imports; delete these
+// import { Clicker } from "../components/Clicker";
+// import { Counter } from "../components/Counter";
+
+import "flowbite";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <h1>Welcome to Astro</h1>
+    <p class="instructions">
+      Check out the <code class="bg-gray-500">src/pages</code> directory to get started.<br
+      />
+    </p>
+
+    <Flowbitten client:load />
+
+    <!-- Flowbitten includes both Clicker and Counter examples.
+         In astro, you need to specify what stage of the lifecycle the component is loaded while in .astro files
+         Try breaking it by:
+          - uncommenting the imports above
+          - uncommenting the components below
+          - removing the `client:*` lifecycle specification
+    -->
+
+    <!-- <Clicker client:load /> -->
+    <!-- <Counter client:visible /> -->
+
+  </main>
+</Layout>

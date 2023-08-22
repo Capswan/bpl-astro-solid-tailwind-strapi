@@ -1,0 +1,22 @@
+---
+import { SEO } from "astro-seo";
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <SEO
+      title={title}
+      description="JS (no TS) + Solid.js + Astro + Tailwind CSS + Flowbite template"
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
