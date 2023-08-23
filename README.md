@@ -4,6 +4,8 @@
 
 | Name | Description | 
 |:-----|:------------|
+| [Strapi](https://strapi.io) | CMS | 
+| [GraphQL](https://graphql.org/) | Alternative rendering for Astro | 
 | [Astro](https://astro.build/) | SSR framework that allows you to work with components from React, Solid, Vue, etc. | 
 | [Solid](https://www.solidjs.com/) | Very performant, JSX-based UI framework |
 | [Tailwind](https://tailwindui.com/) | CSS framework |
@@ -19,12 +21,15 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 ├── src/
 │   └── components/
-│       └── Clicker.jsx
-│       └── Counter.jsx
-│       └── Flowbitten.jsx
+│       └── NavBar.astro
 │   └── layouts/
-│       └── Layouts.astro 
+│       └── Layout.astro 
 │   └── pages/
+│       └── graphql
+│           └── [slug].astro 
+│       └── posts
+│           └── [slug].astro 
+│           └── index.astro
 │       └── index.astro
 ├── .gitignore
 ├── astro.config.json
@@ -39,11 +44,12 @@ Inside of your Astro project, you'll see the following folders and files:
 
 | Path | Description | 
 |:-----|:------------|
-| `./src/components/Clicker.jsx` | SolidJS button example | 
-| `./src/components/Counter.jsx` | SolidJS interval-based counter example | 
-| `./src/components/Flowbitten.jsx` | SolidJS app example. Combined Flowbite and Tailwind along with our Clicker & Counter examples | 
-| `./src/layouts/Layouts.astro` | Astro layout wrapper; includes [astro-seo](https://github.com/jonasmerlin/astro-seo) | 
-| `./src/pages/index.astro` | App entry point | 
+| `./src/components/NavBar.astro` | Astro/Flowbite/Tailwind - Top NavBar | 
+| `./src/layouts/Layout.astro` | Astro - Wrapper component; includes [astro-seo](https://github.com/jonasmerlin/astro-seo) | 
+| `./src/pages/grpahql/[slug].astro` | Astro - Blog post renderer (optional) via GraphQL | 
+| `./src/pages/posts/[slug].astro` | Astro - Dynamic post renderer (optional) | 
+| `./src/pages/posts/index.astro` | Astro - Render all blogs; imported in index renderer (used to display blog posts in `pages/index.astro`) | 
+| `./src/pages/index.astro` | App entry point; renders sample blog content | 
 | `./astro.config.json` | Astro config; includes Tailwind & SolidJS plugins | 
 | `./tailwind.config.json` | Tailwind config; includes Flowbite plugin | 
 | `./tsconfig.js` | Manage invasive type checker | 
@@ -82,7 +88,7 @@ All commands are run from the root of the project, from a terminal:
 - [Astro Overview (~3 min)](https://www.youtube.com/watch?v=gxBkghlglTg)
 - [Tailwind Overview (~2 min)](https://www.youtube.com/watch?v=mr15Xzb1Ook)
 - [Flowbite Crash Course (~20 min)](https://youtu.be/KaLxCiilHns?t=616)
-
+- [Integrating Strapi - 6 Part Lab](https://www.howtocode.io/posts/astro/creating-our-markdown-blog)
 ### Other
 - [NextJS vs Astro Performance Comparison](https://www.youtube.com/watch?v=wzRSYQ3b-Mk)
 

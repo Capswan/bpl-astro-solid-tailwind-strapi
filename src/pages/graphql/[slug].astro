@@ -1,0 +1,50 @@
+---
+export async function getStaticPaths() {
+  const response = await fetch("http://127.0.0.1:1337/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query {
+          posts {
+            data { # entry point for { post } = Astro.props;
+              id
+              attributes {
+                title
+                slug
+                body
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+    }),
+  });
+
+  const { data } = await response.json();
+
+  return data.posts.data.map((post) => {
+    return {
+      params: { slug: post.attributes.slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+---
+
+<h2>{post.attributes.title}</h2>
+<p>{post.attributes.body}</p>
+<img
+  src={`http://127.0.0.1:1337${post.attributes.image.data.attributes.url}`}
+/>
